@@ -116,6 +116,8 @@ in stdenv.mkDerivation rec {
     rm -r ./squashfs-root/usr/lib
     rm ./squashfs-root/AppRun
     mv ./squashfs-root $out/opt/shadow-${shadowChannel}
+    rm $out/opt/shadow-prod/.DirIcon
+    rm $out/opt/shadow-prod/shadow-launcher.png
   '' +
 
   # Add debug wrapper
@@ -152,7 +154,7 @@ in stdenv.mkDerivation rec {
     substitute $out/opt/shadow-${shadowChannel}/${binaryName}.desktop \
       $out/share/applications/${binaryName}.desktop \
       --replace "Exec=AppRun" "Exec=$out/bin/shadow-${shadowChannel}" \
-      --replace "Icon=${binaryName}" "Icon=$out/opt/${binaryName}/resources/app.asar.unpacked/release/main/assets/icons/shadow-${shadowChannel}.png"
+      --replace "Icon=${binaryName}" "Icon=$out/opt/${binaryName}/resources/app.asar.unpacked/release/main/assets/icons/${shadowChannel}/shadow.png"
   '';
 
   meta = with lib; {
