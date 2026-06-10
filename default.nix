@@ -1,7 +1,8 @@
 { stdenv, lib, pkgs, runCommand, yq, jq, fetchurl, makeWrapper, autoPatchelfHook
 , wrapGAppsHook3, zlib, runtimeShell
 
-, xorg, alsa-lib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
+, libx11, libxcb, libxrandr, libxcomposite, libxdamage, libxscrnsaver, libxcursor, libxfixes, libxi, libxtst, libxshmfence, libxcb-image, libxcb-render-util, libxinerama,
+ alsa-lib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
 , nss, cups, expat, atk, at-spi2-atk, gtk3, gdk-pixbuf, libsecret, systemd
 , pulseaudio, libGL, dbus, libnghttp2, libidn2, libpsl, libkrb5, openldap
 , rtmpdump, libinput, mesa, libpulseaudio, libvdpau, curl
@@ -31,19 +32,19 @@ in stdenv.mkDerivation rec {
   buildInputs = [
     stdenv.cc.cc.lib
 
-    xorg.libX11
-    xorg.libxcb
-    xorg.libXrandr
-    xorg.libXcomposite
-    xorg.libXdamage
-    xorg.libXScrnSaver
-    xorg.libXcursor
-    xorg.libXfixes
-    xorg.libXi
-    xorg.libXtst
-    xorg.xcbutilimage
-    xorg.xcbutilrenderutil
-    xorg.libxshmfence
+    libx11
+    libxcb
+    libxrandr
+    libxcomposite
+    libxdamage
+    libxscrnsaver
+    libxcursor
+    libxfixes
+    libxi
+    libxtst
+    libxcb-image
+    libxcb-render-util
+    libxshmfence
 
     cairo
     pango
@@ -84,7 +85,7 @@ in stdenv.mkDerivation rec {
     libGL
     dbus
     libsecret
-    xorg.libXinerama
+    libxinerama
     libva
   ];
 
