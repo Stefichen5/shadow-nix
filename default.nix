@@ -1,5 +1,5 @@
 { stdenv, lib, pkgs, runCommand, yq, jq, fetchurl, makeWrapper, autoPatchelfHook
-, wrapGAppsHook, zlib, runtimeShell
+, wrapGAppsHook3, zlib, runtimeShell
 
 , xorg, alsa-lib, libbsd, libopus, openssl, libva, pango, cairo, libuuid, nspr
 , nss, cups, expat, atk, at-spi2-atk, gtk3, gdk-pixbuf, libsecret, systemd
@@ -25,7 +25,7 @@ in stdenv.mkDerivation rec {
   channel = shadowChannel;
 
   # Add all hooks
-  nativeBuildInputs = [ autoPatchelfHook wrapGAppsHook makeWrapper ];
+  nativeBuildInputs = [ autoPatchelfHook wrapGAppsHook3 makeWrapper ];
 
   # Useful libraries to build the package
   buildInputs = [
